@@ -7,23 +7,23 @@
 
 /* Variáveis de cores e imagens */
 :root {
-    --text-color: white;
-    --bg-url: url(./assets/assets/bg-mobile.jpg); /* Corrigido o caminho */
-    --stroke-color: rgba(255, 255, 255, 0.5);
-    --surface-color: rgba(255, 255, 255, 0.1);
-    --surface-color-hover: rgba(255, 255, 255, 0.05);
-    --highlight-color: rgba(255, 255, 255, 0.2);
-    --switch-bg-url: url(./assets/assets/moon-stars.svg); /* Corrigido o caminho */
+    --text-color: white; /* Cor do texto para o modo escuro padrão */
+    --bg-url: url(./assets/assets/bg-mobile.jpg); /* Fundo padrão para o modo escuro */
+    --stroke-color: rgba(255, 255, 255, 0.5); /* Cor da borda padrão para o modo escuro */
+    --surface-color: rgba(255, 255, 255, 0.1); /* Cor de fundo dos itens para o modo escuro */
+    --surface-color-hover: rgba(255, 255, 255, 0.05); /* Cor de fundo dos itens no hover para o modo escuro */
+    --highlight-color: rgba(255, 255, 255, 0.2); /* Cor de destaque para o modo escuro */
+    --switch-bg-url: url(./assets/assets/moon-stars.svg); /* Ícone do switch para o modo escuro */
 }
 
 .light {
-    --text-color: black;
-    --bg-url: url(./assets/assets/bg-mobile-light.jpg); /* Corrigido o caminho */
-    --stroke-color: rgba(0, 0, 0, 0.5);
-    --surface-color: rgba(0, 0, 0, 0.05);
-    --surface-color-hover: rgba(0, 0, 0, 0.02);
-    --highlight-color: rgba(0, 0, 0, 0.1);
-    --switch-bg-url: url(./assets/assets/sun.svg); /* Corrigido o caminho */
+    --text-color: black; /* Cor do texto para o modo claro */
+    --bg-url: url(./assets/assets/bg-mobile-light.jpg); /* Fundo para o modo claro */
+    --stroke-color: rgba(0, 0, 0, 0.5); /* Cor da borda para o modo claro */
+    --surface-color: rgba(0, 0, 0, 0.05); /* Cor de fundo dos itens para o modo claro */
+    --surface-color-hover: rgba(0, 0, 0, 0.02); /* Cor de fundo dos itens no hover para o modo claro */
+    --highlight-color: rgba(0, 0, 0, 0.1); /* Cor de destaque para o modo claro */
+    --switch-bg-url: url(./assets/assets/sun.svg); /* Ícone do switch para o modo claro */
 }
 
 /* Estilo do corpo */
@@ -65,6 +65,7 @@ body {
     font-weight: 500;
     line-height: 24px;
     margin-top: 8px;
+    color: var(--text-color); /* Cor do texto do perfil */
 }
 
 /* Estilo do switch */
@@ -85,11 +86,16 @@ body {
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    animation: slide-back 0.2s;
 }
 
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
+}
+
+
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: slide-in 0.2s forwards;
 }
 
 #switch span {
@@ -125,6 +131,7 @@ ul li a {
     text-decoration: none;
     font-weight: 500;
     transition: background 0.2s, border 0.2s; /* Adiciona transição para borda */
+    color: var(--text-color); /* Cor do texto dos links */
 }
 
 ul li a:hover {
@@ -147,6 +154,7 @@ ul li a:hover {
     padding: 16px;
     transition: background 0.2s;
     border-radius: 50%;
+    color: var(--text-color); /* Cor dos ícones sociais */
 }
 
 #social-links a:hover {
@@ -158,13 +166,33 @@ footer {
     padding: 24px 0;
     text-align: center;
     font-size: 14px;
+    color: var(--text-color); /* Cor do texto do rodapé */
 }
 
-@media (min-widht: 700px) {
+@media (min-width: 700px) {
     :root {
         --bg-url: url(./assets/assets/bg-desktop.jpg);
     }
 
     .light {
-        --bg-url: url(./assets/assets/bg-desktop-light);
-    }}
+        --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
+}
