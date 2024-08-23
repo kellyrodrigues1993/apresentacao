@@ -31,6 +31,7 @@ body {
     background: var(--bg-url) no-repeat top center/cover;
     color: var(--text-color); /* Define a cor do texto globalmente */
     font-family: 'Inter', sans-serif; /* Define a fonte globalmente */
+    height: 100vh;
 }
 
 /* Fonte específica */
@@ -158,3 +159,12 @@ footer {
     text-align: center;
     font-size: 14px;
 }
+
+@media (min-widht: 700px) {
+    :root {
+        --bg-url: url(./assets/assets/bg-desktop.jpg);
+    }
+
+    .light {
+        --bg-url: url(./assets/assets/bg-desktop-light);
+    }}
