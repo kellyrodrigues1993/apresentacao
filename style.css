@@ -1,0 +1,159 @@
+/* Reset básico e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cores e imagens */
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/assets/bg-mobile.jpg); /* Corrigido o caminho */
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/assets/moon-stars.svg); /* Corrigido o caminho */
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/assets/bg-mobile-light.jpg); /* Corrigido o caminho */
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/assets/sun.svg); /* Corrigido o caminho */
+}
+
+/* Estilo do corpo */
+body {
+    background: var(--bg-url) no-repeat top center/cover;
+    color: var(--text-color); /* Define a cor do texto globalmente */
+    font-family: 'Inter', sans-serif; /* Define a fonte globalmente */
+}
+
+/* Fonte específica */
+.inter {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: inherit; /* Usa a cor herdada do body */
+}
+
+/* Estilo do contêiner e perfil */
+#container {
+    width: 360px;
+    height: 712px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+}
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+    margin: auto;
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/* Estilo do switch */
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* Estilo dos links de navegação */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, border 0.2s; /* Adiciona transição para borda */
+}
+
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color); /* Ajustado para borda mais visível */
+}
+
+/* Estilo dos links sociais */
+#social-links {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover {
+    background: var(--highlight-color);
+}
+
+/* Estilo do rodapé */
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
